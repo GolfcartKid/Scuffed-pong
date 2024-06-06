@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Pong</title>
+        <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+        <script>
+            function start(){
+                sjs.open("target",1080,720);
+
+                                //ball
+                                var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(120,120)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(4);
+puck.pushUp(3);
+var puck2 = new sjs.Image("Images/pizza.png");
+puck2.type = "ball";
+puck2.setSize(90,90)
+puck2.center();
+puck2.friction = 0;
+puck2.bounce();
+puck2.pushLeft(5);
+puck2.pushDown(3);
+var puck3 = new sjs.Image("Images/pizza.png");
+puck3.type = "ball";
+puck3.setSize(150,150)
+puck3.center();
+puck3.friction = 0;
+puck3.bounce();
+puck3.pushLeft(2);
+puck3.pushDown(5);
+
+
+                //menu txt
+                var menu_text = new sjs.Text("your bad", 53,"green")
+                menu_text.centerH();
+                var menu_text = new sjs.Text("your bad", 50,"lime")
+                menu_text.centerH();
+                //help txt
+                var help = new sjs.Text("nah i'd lose")
+                help.centerH().offset(0, 50);
+                //button
+                
+                var startBtn = new sjs.Button("|ploo aggin|", function(){
+                window.location = "pong.html";
+                
+        
+});
+startBtn.centerH().bottom();
+            }
+        </script>
+    </head>
+  <body onload="start()">
+<h1> Pong Game </h1>
+<div id="target" style="margin:auto;background:grey;"></div>
+</html>

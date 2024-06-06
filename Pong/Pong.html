@@ -1,0 +1,198 @@
+<html>
+<head>
+<title> Pong </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js">
+</script>
+<script>
+function start(){
+sjs.open("target",1080,720);
+
+//ball object / properties
+var puck2 = new sjs.Image("Images/pizza.png");
+puck2.type = "ball";
+puck2.setSize(75,75)
+puck2.center();
+puck2.friction = 0;
+puck2.bounce();
+puck2.pushRight(7);
+puck2.pushUp(5);
+
+//border
+var border2 = new sjs.Image("Images/pink.png");
+border2.type = ("block")
+border2.setSize(10,720)
+border2.centerH().moveTo(0,250);
+
+var border1 = new sjs.Image("Images/red.png");
+border1.type = ("block")
+border1.setSize(10,720)
+border1.centerH().moveTo(1080,250);
+
+//paddle1 object / properties
+var paddle1 = new sjs.Image("Images/green.png");
+paddle1.type = ("paddle")
+paddle1.setSize(20,200)
+paddle1.centerH().moveTo(980,250);
+
+//paddle2 object / properties
+var paddle2 = new sjs.Image("Images/blue.png");
+paddle2.type = ("paddle")
+paddle2.setSize(20,200)
+paddle2.centerH().moveTo(100,250);
+
+// paddle move Up
+sjs.keyDown(W_KEY, function(){
+paddle1.pushUp();
+paddle2.pushUp();
+});
+// paddle move Up Arrow Key
+sjs.keyDown(UP_KEY, function(){
+paddle1.pushUp();
+paddle2.pushUp();
+});
+
+// paddle move down
+sjs.keyDown(S_KEY, function(){
+paddle1.pushDown();
+paddle2.pushDown();
+});
+// paddle move down Arrow Key
+sjs.keyDown(DOWN_KEY, function(){
+paddle1.pushDown();
+paddle2.pushDown();
+});
+
+// On hit 
+sjs.onHit("ball","paddle", function(ball,paddle){
+sjs.bounceOff(ball,paddle);
+score = score + 1; 
+score_txt.setText("Score: "+score);
+score_txt2.setText("Score: "+score);
+if(score == 10){
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(7);
+puck.pushUp(5);
+}});
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(7);
+puck.pushUp(5);
+sjs.onHit("ball","block", function(ball,block){
+sjs.bounceOff(ball,block);
+score = score -1;
+score_txt.setText("Score:"+score);
+score_txt2.setText("Score:"+score);
+if(score <= -1){
+    window.location = "gameover.html";
+    }
+});
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(6);
+puck.pushUp(9);
+sjs.onHit("ball","block", function(ball,block){
+sjs.bounceOff(ball,block);
+score = score -1;
+score_txt.setText("Score:"+score);
+score_txt2.setText("Score:"+score);
+if(score <= -1){
+    window.location = "gameover.html";
+    }
+});
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(10);
+puck.pushUp(10);
+sjs.onHit("ball","block", function(ball,block){
+sjs.bounceOff(ball,block);
+score = score -1;
+score_txt.setText("Score:"+score);
+score_txt2.setText("Score:"+score);
+if(score <= -1){
+    window.location = "gameover.html";
+    }
+});
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(7);
+puck.pushUp(9);
+sjs.onHit("ball","block", function(ball,block){
+sjs.bounceOff(ball,block);
+score = score -1;
+score_txt.setText("Score:"+score);
+score_txt2.setText("Score:"+score);
+if(score <= -3){
+    window.location = "gameover.html";
+    }
+});
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(7);
+puck.pushUp(2);
+sjs.onHit("ball","block", function(ball,block){
+sjs.bounceOff(ball,block);
+score = score -1;
+score_txt.setText("Score:"+score);
+score_txt2.setText("Score:"+score);
+if(score <= -5){
+    window.location = "gameover.html";
+    }
+});
+var puck = new sjs.Image("Images/pizza.png");
+puck.type = "ball";
+puck.setSize(75,75)
+puck.center();
+puck.friction = 0;
+puck.bounce();
+puck.pushRight(10);
+puck.pushUp(5);
+sjs.onHit("ball","block", function(ball,block){
+sjs.bounceOff(ball,block);
+score = score -10;
+score_txt.setText("Score:"+score);
+score_txt2.setText("Score:"+score);
+if(score <= -1){
+    window.location = "gameover.html";
+    }
+});
+
+// score
+var score = 0;
+var score_txt = new sjs.Text ("Score : 0", 53,"green")
+score_txt.centerH();
+var score = 0;
+var score_txt2 = new sjs.Text ("Score : 0", 50,"lime")
+score_txt2.centerH();
+} // end
+</script>
+</head>
+<body onload="start()">
+<h1> Pong Game </h1>
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>
